@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+$backgroud-app: #E5E5E5;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+body{
+    background: $backgroud-app;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+html, body { 
+    width: 100vw;
+    height: 100vh; 
+}

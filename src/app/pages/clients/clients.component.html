@@ -1,0 +1,30 @@
+<app-header title="Clientes"></app-header>
+
+<div class="container">
+  <p>Lista de clientes</p>
+  <app-search (changeText)="search($event)"></app-search>
+</div>
+
+<div class="table-clients">
+  <span class="titles-table-clients">
+    <span>nome</span>
+    <span>e-mail</span>
+    <span>ativo</span>
+    <span>telefone</span>
+    <span>renda</span>
+  </span>
+
+  <div *ngIf="filtredData.length; else empty">
+    <span *ngFor="let item of filtredData" class="line-table-clients">
+      <a routerLink="/details/{{ item.email }}">{{ item.name }}</a>
+      <span>{{ item.email }}</span>
+      <span>{{ item.isActive }}</span>
+      <span>{{ item.phone }}</span>
+      <span>R$ {{ (item.revenue / 100).toFixed(2) }}</span>
+    </span>
+  </div>
+  <ng-template #empty>  
+      <app-empty-opportunities text="sem clientes" ></app-empty-opportunities>
+        
+  </ng-template>
+</div>

@@ -1,0 +1,76 @@
+<title>Client detail</title>
+<app-header title="clientes > detalhes clientes"></app-header>
+
+<div class="container" *ngIf="client" >
+  <span class="container-header">
+    <span>{{ client.name }}</span>
+    <button (click)="goBack()" class="button">Voltar</button>
+  </span>
+
+  <div class="table-details">
+    <p>Dados do cliente</p>
+    <span class="table-details-line1">
+      <span class="table-details-name-value"> email </span>
+      <span class="table-details-name-value"> telefone </span>
+
+      <span class="table-details-value">
+        {{ client.email }}
+      </span>
+      <span class="table-details-value">
+        {{ client.phone }}
+      </span>
+    </span>
+    <span class="table-details-line2">
+      <span class="table-details-name-value"> renda </span>
+      <span class="table-details-name-value"> ativo </span>
+
+      <span class="table-details-name-value"> Termo aceito </span>
+
+      <span class="table-details-value">
+        R$ {{ (client.revenue / 100).toFixed(2) }}
+      </span>
+      <span class="table-details-value">
+        <input type="checkbox" checked="{{ client.isActive }}" />
+      </span>
+      <span class="table-details-value">
+        <input type="checkbox" checked="{{ client.agreedTerms }}" />
+      </span>
+    </span>
+  </div>
+
+  <div
+    class="table-oportunities"
+    *ngIf="client?.opportunities?.length; else elseBlock"
+  >
+    <p>oportunidades</p>
+
+    <span
+      class="table-oportunities-line"
+      *ngFor="let item of client?.opportunities;let indexOfelement=index;"
+    >
+      <div class="status" [ngClass]="item.isActive ? 'green' : 'red'"></div>
+      <span class="table-details-name-value">nome</span>
+      <span class="table-details-name-value">taxa de juros</span>
+      <span class="table-details-name-value">termos</span>
+      <span class="table-details-name-value">limite</span>
+
+      <span>{{ item.name }}</span>
+      <span>{{ (item.interest * 100).toFixed(2) }}%</span>
+      <span>{{ item.term }}</span>
+      <span>{{ item.limit }} p</span>
+      <button *ngIf="item.isActive; else NotActive" (click)="handleStatusOpportunities(indexOfelement)">desativar</button>
+      <ng-template #NotActive>
+        <button (click)="handleStatusOpportunities(indexOfelement)">ativar</button>
+      </ng-template>
+    </span>
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="table-oportunities">
+      <p>oportunidades</p>
+      <app-empty-opportunities
+        text="sem oportunidades"
+      ></app-empty-opportunities>
+    </div>
+  </ng-template>
+</div>
