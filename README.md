@@ -2,26 +2,28 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Rodar o projeto
 
-## Code scaffolding
+### Servidor de desenvolvimento
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para rodar o servidor de desenvolvimento rode o comando `ng serve`. Entre pelo navehgador pelo url `http://localhost:4200/`.
 
-## Build
+### Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para buildar o projeto rode o comando  `ng build` . Os resultados de construidos serão armazenados no diretorio `dist/`.
 
-## Running unit tests
+## Geral
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### rotas
+Sobre o projeto temos duas rotas 
+1. / , pagina onde são listados os clientes cadastrados no "banco de dados"
+2. -/details/:id, pagina onde são listados os dados de um de um cliente juntamente com as oportunidades atribuidas
 
-## Running end-to-end tests
+### pastas
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    /components  - componentes criados para serem utilizados no projeto
+    /services    - destinado para centralizar as requisições http do projeto
+    /pages       - organização das paginas do projeto
+    /interfaces  - centralização das interfaces
+  
